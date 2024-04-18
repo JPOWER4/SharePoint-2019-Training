@@ -3,3 +3,7 @@ Enable State Service
 Go to SharePoint Management Shell
 Execute below comments
 
+Add-PSSnapin Microsoft.SharePoint.PowerShell -ErrorAction SilentlyContinue
+$StateServiceApp = New-SPStateServiceApplication -Name "State Service Application"
+New-SPStateServiceDatabase -Name "SP13_State_Service" -ServiceApplication $StateServiceApp
+ New-SPStateServiceApplicationProxy -Name "State Service" -ServiceApplication $StateServiceApp -DefaultProxyGroup
